@@ -69,7 +69,7 @@ public class UserRegressTest {
     @Test
     public void testUnsuccessfulUserRegistration() {
         String expectedOutput = "Missing password";
-        Specifications.setSpecs(Specifications.requestSpec(BASE_URL),
+        Specifications.setSpecs(Specifications.requestSpec(BASE_URL, "x-api-key", "reqres-free-v1"),
                 Specifications.responseSpec(400));
         UserRegistrationRequest userRegistrationRequest =
                 new UserRegistrationRequest("user@gmail.com", "");
