@@ -11,11 +11,13 @@ public class AccordianPage {
     SelenideElement firstCard = $(".card:first-child");
 
     public void clickOnFirstCard() {
-        firstCard.shouldBe(visible, enabled).click();
+        firstCard.shouldBe(visible, enabled)
+                .scrollIntoView(true).click();
     }
 
     public void clickOnSecondCard() {
-        secondCard.shouldBe(visible, enabled).click();
+        secondCard.shouldBe(visible, enabled)
+                .scrollIntoView(true).click();
     }
 
     public void checkFirstTextIsVisible() {
