@@ -7,6 +7,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +19,7 @@ import static io.restassured.RestAssured.given;
 
 @Epic("Reqres Tests")
 @Owner("RoyMoskitov")
+@Tag("api")
 public class UserRegressTest {
     public static final String BASE_URL = "https://reqres.in/";
 

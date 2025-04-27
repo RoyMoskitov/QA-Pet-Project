@@ -43,4 +43,24 @@ allure {
 
 test {
     useJUnitPlatform()
+
+    systemProperty 'junit.jupiter.execution.parallel.enabled', 'true'
+
+    // параллельные UI-тесты
+    tasks.register('uiTest', Test) {
+        useJUnitPlatform {
+            includeTags 'ui'
+        }
+        systemProperty 'junit.jupiter.execution.parallel.mode.default', 'concurrent'
+        maxParallelForks = 4
+    }
+
+    // последовательные API-тесты
+    tasks.register('apiTest', Test) {
+        useJUnitPlatform {
+            includeTags 'api'
+        }
+        systemProperty 'junit.jupiter.execution.parallel.mode.default', 'same_thread'
+        maxParallelForks = 1
+    }
 }

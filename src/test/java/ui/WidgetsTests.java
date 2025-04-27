@@ -3,6 +3,7 @@ package ui;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.Page.MainPage;
 import ui.Page.MainPageCardType;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Epic("DemoQA Tests")
 @Owner("RoyMoskitov")
+@Tag("ui")
 public class WidgetsTests extends BaseTest{
     public static final String BASE_URL = "https://demoqa.com/";
 
