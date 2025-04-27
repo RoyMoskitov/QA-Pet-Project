@@ -2,10 +2,12 @@ package api;
 
 import api.Model.*;
 import api.Specification.Specifications;
+import com.github.javafaker.Faker;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -50,8 +52,10 @@ public class UserRegressTest {
 
     @Test
     public void testCorrectUserCreation() {
-        String expectedName = "Artem Kim";
-        String expectedJob = "builder";
+        Faker faker = new Faker();
+
+        String expectedName = faker.name().fullName();
+        String expectedJob = faker.job().position();
         Specifications.setSpecs(Specifications.requestSpec(BASE_URL),
                 Specifications.responseSpec(201));
         UserCreationRequest userCreationRequest = new UserCreationRequest(expectedName, expectedJob);
